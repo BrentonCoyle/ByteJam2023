@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class Pet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private int age = 0;
+    [SerializeField] private int hunger = 0;
+    [SerializeField] private string pName; // p = Pet
+    [SerializeField] private bool isSick = false;
+    [SerializeField] private Sprite sprite;
 }

@@ -5,5 +5,5 @@ using UnityEngine;
 public class Medicene : MonoBehaviour
 {
     [SerializeField] private int price;
-    [SerializeField] private Sprite sprite;
+    [SerializeField] private SpriteRenderer sr;
 }

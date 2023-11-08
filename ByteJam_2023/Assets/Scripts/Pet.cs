@@ -8,5 +8,5 @@ public class Pet : MonoBehaviour
     [SerializeField] private int hunger;
     [SerializeField] private string pName; // p = Pet
     [SerializeField] private bool isSick = false;
-    [SerializeField] private Sprite sprite;
+    [SerializeField] private SpriteRenderer sr;
 }

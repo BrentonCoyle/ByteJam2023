@@ -7,5 +7,5 @@ public class Food : MonoBehaviour
     [SerializeField] int hungerPoints;
     [SerializeField] int price;
     [SerializeField] string fName; // f = food
-    [SerializeField] Sprite sprite;
+    [SerializeField] private SpriteRenderer sr;
 }

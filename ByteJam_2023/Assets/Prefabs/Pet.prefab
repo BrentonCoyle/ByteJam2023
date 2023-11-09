@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   age: 0
-  hunger: 0
+  hunger: 100
   pName: 
-  isSick: 0
-  sprite: {fileID: 0}
+  health: 100
+  sr: {fileID: 0}
 --- !u!212 &6561062473682684491
 SpriteRenderer:
   m_ObjectHideFlags: 0

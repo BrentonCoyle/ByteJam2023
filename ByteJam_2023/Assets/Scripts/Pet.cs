@@ -8,6 +8,11 @@ public class Pet : MonoBehaviour
 {
     [SerializeField] private int age;
     [SerializeField] private string pName; // p = Pet
+    [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private float maxVelocity;
+    [SerializeField] private float minAngle;
+    [SerializeField] private float maxAngle;
     public Text text;
 
     private int hunger = 100;
@@ -15,10 +20,6 @@ public class Pet : MonoBehaviour
     private int CostOfFood = 10;
     private int CostOfMedical = 10;
     private int Money = 100;
-
-
-    [SerializeField] private SpriteRenderer sr;
-
     private int HungerTime = 100;
 
     public int Increase = 5;
@@ -27,30 +28,38 @@ public class Pet : MonoBehaviour
     public Image FoodBarGreen;
 
 
-
-    
     private void Update()
     {
-
         // if the hunger timer is lower than 0 decrease the food amount.
-        if(HungerTime > 0)
+        if (HungerTime > 0)
         {
             HungerTime -= 1;
         }
         else
         {
             DecreaseFoodStat();
-            
+
             if (hunger <= 75)
             {
                 DecreaseHealthStat();
             }
             HungerTime = 100;
         }
-
-        
-
     }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVelocity);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var angle = minAngle + Random.Range(50, 100) * (maxAngle - minAngle);
+        var x = Mathf.Cos(angle);
+        var y = Mathf.Sin(angle);
+        rb.AddForce(new Vector2(x, y) * 25);
+    }
+
     // decrease the food amount and update the bar
     public void DecreaseFoodStat()
     {

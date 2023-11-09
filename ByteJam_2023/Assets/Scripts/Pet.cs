@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,12 +8,13 @@ public class Pet : MonoBehaviour
 {
     [SerializeField] private int age;
     [SerializeField] private string pName; // p = Pet
+    public Text text;
 
-    [SerializeField] private int hunger = 100;
-    [SerializeField] private int health = 100;
-    [SerializeField] private int CostOfFood = 10;
-    [SerializeField] private int CostOfMedical = 10;
-    [SerializeField] private int Money = 100;
+    private int hunger = 100;
+    private int health = 100;
+    private int CostOfFood = 10;
+    private int CostOfMedical = 10;
+    private int Money = 100;
 
 
     [SerializeField] private SpriteRenderer sr;
@@ -29,6 +31,7 @@ public class Pet : MonoBehaviour
     
     private void Update()
     {
+
         // if the hunger timer is lower than 0 decrease the food amount.
         if(HungerTime > 0)
         {
@@ -48,13 +51,14 @@ public class Pet : MonoBehaviour
         
 
     }
-
+    // decrease the food amount and update the bar
     public void DecreaseFoodStat()
     {
         hunger -= Decrease;
         FoodBarGreen.fillAmount = hunger / 100f;
     }
 
+    // Increase the food amount/ bar IF you have the money
     public void IncreaseFoodStat()
     {
         if(Money >= CostOfFood)
@@ -67,6 +71,7 @@ public class Pet : MonoBehaviour
         
     }
 
+    // Same thing as food but for health.
     public void DecreaseHealthStat()
     {
         health -= Decrease;

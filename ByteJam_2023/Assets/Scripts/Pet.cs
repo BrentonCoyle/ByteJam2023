@@ -19,8 +19,8 @@ public class Pet : MonoBehaviour
 
     [SerializeField] private int costOfFood = 10;
     [SerializeField] private int costOfMedical = 10;
-    [SerializeField] private int increase = 5;
-    [SerializeField] private int decrease = 5;
+    [SerializeField] private int increase = 20;
+    [SerializeField] private int decrease = 3;
 
     private bool isHatched = false;
     private bool isSick = false;
@@ -58,9 +58,9 @@ public class Pet : MonoBehaviour
     private void Update()
     {
         /// Text for UI
-      //  MoneyText.SetText("Current Money: $" + PlayerManager.GetMoney());
-      //  FoodCostText.SetText("Cost: $" + costOfFood);
-      //  MediceneCostText.SetText("Cost Money: $" + costOfMedical);
+      MoneyText.SetText("Current Money: $" + PlayerManager.GetMoney());
+      FoodCostText.SetText("Cost: $" + costOfFood);
+      MediceneCostText.SetText("Cost: $" + costOfMedical);
 
         if (isHatched)
         {
@@ -124,6 +124,7 @@ public class Pet : MonoBehaviour
         if(collision.gameObject.name == "Medicene(Clone)")
         {
             IncreaseHealthStat();
+            UseMedicine();
             Destroy(collision.gameObject);
         }
 
@@ -136,14 +137,14 @@ public class Pet : MonoBehaviour
 
         if (GameObject.Find("Medicene(Clone)"))
         {
-            rb.AddForce(new Vector2(10, 5) * 10);
+            rb.AddForce(new Vector2(15, 5) * 10);
 
         }
         else
         {
             if (GameObject.Find("Food(Clone)"))
             {
-                rb.AddForce(new Vector2(-10, 5) * 10);
+                rb.AddForce(new Vector2(-15, 5) * 10);
             }
         }
         var angle = minAngle + Random.Range(50, 100) * (maxAngle - minAngle);

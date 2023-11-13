@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -53,9 +50,9 @@ public class Pet : MonoBehaviour
 
     private void Update()
     {
-        MoneyText.SetText("Current Money: $" + money);
-        FoodCostText.SetText("Cost: $" + costOfFood);
-        MediceneCostText.SetText("Cost Money: $" + costOfMedical);
+       // MoneyText.SetText("Current Money: $" + money);
+       // FoodCostText.SetText("Cost: $" + costOfFood);
+       // MediceneCostText.SetText("Cost Money: $" + costOfMedical);
 
         if (isHatched)
         {

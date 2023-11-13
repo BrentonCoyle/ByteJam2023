@@ -23,6 +23,8 @@ public class Pet : MonoBehaviour
     [SerializeField] private int increase = 5;
     [SerializeField] private int decrease = 5;
 
+    private bool isHatched = false;
+
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Text text;
@@ -30,8 +32,6 @@ public class Pet : MonoBehaviour
     [SerializeField] private Image FoodBarGreen;
 
     [SerializeField] private Sprite[] petSprites;
-
-
 
 
     private void Awake()
@@ -43,20 +43,23 @@ public class Pet : MonoBehaviour
     private void Update()
     {
         // if the hunger timer is lower than 0 decrease the food amount.
-        if (hungerTime > 0)
+        if (isHatched)
         {
-            hungerTime -= 1;
-        }
-        else
-        {
-            DecreaseFoodStat();
-
-            if (hunger <= 75)
+            if (hungerTime > 0)
             {
-                DecreaseHealthStat();
+                hungerTime -= 1;
             }
-            hungerTime = 100;
-        }
+            else
+            {
+                DecreaseFoodStat();
+                
+                if (hunger == 0)
+                {
+                    DecreaseHealthStat();
+                }
+                hungerTime = 100;
+            }
+        }      
     }
 
     private void FixedUpdate()
@@ -77,6 +80,7 @@ public class Pet : MonoBehaviour
         yield return new WaitForSeconds(hatchTime);
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         SetSprite(indexSelection);
+        isHatched = true;
     }
 
     private void SetSprite(int indexSelection)
@@ -86,14 +90,18 @@ public class Pet : MonoBehaviour
     }
 
     // decrease the food amount and update the bar
-    public void DecreaseFoodStat()
+    private void DecreaseFoodStat()
     {
-        hunger -= decrease;
-        FoodBarGreen.fillAmount = hunger / 100f;
+        if (hunger > 0)
+        {
+            hunger -= decrease;
+            FoodBarGreen.fillAmount = hunger / 100f;
+        }
+        else { return; }    
     }
 
     // Increase the food amount/ bar IF you have the money
-    public void IncreaseFoodStat()
+    private void IncreaseFoodStat()
     {
         if(money >= costOfFood)
         {
@@ -106,13 +114,17 @@ public class Pet : MonoBehaviour
     }
 
     // Same thing as food but for health.
-    public void DecreaseHealthStat()
+    private void DecreaseHealthStat()
     {
-        health -= decrease;
-        HealthBarGreen.fillAmount = health / 100f;
+        if (health > 0)
+        {
+            health -= decrease;
+            HealthBarGreen.fillAmount = health / 100f;
+        }
+        else { Die(); }
     }
 
-    public void IncreaseHealthStat()
+    private void IncreaseHealthStat()
     {
         if(money >= costOfFood)
         {
@@ -122,5 +134,10 @@ public class Pet : MonoBehaviour
             money -= costOfFood;
         }
         
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }

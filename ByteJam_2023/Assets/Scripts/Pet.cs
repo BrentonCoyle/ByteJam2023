@@ -42,6 +42,9 @@ public class Pet : MonoBehaviour
     [SerializeField] public GameObject FoodSpawner;
     [SerializeField] public GameObject MediceneSpawner;
 
+    [SerializeField] public GameObject Food;
+    [SerializeField] public GameObject Pill;
+
 
     private void Awake()
     {
@@ -76,17 +79,13 @@ public class Pet : MonoBehaviour
                 hungerTime = 100;
             }
 
-            
-
-
-
         }
 
+        
 
-    }      
+    }
 
     
-
 
     private void FixedUpdate()
     {
@@ -95,6 +94,33 @@ public class Pet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision.gameObject.name);
+
+        if(collision.gameObject.name == "Medicene(Clone)")
+        {
+            IncreaseHealthStat();
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.name == "Food(Clone)")
+        {
+            IncreaseFoodStat();
+            Destroy(collision.gameObject);
+        }
+
+
+        if (GameObject.Find("Medicene(Clone)"))
+        {
+            rb.AddForce(new Vector2(10, 5) * 10);
+
+        }
+        else
+        {
+            if (GameObject.Find("Food(Clone)"))
+            {
+                rb.AddForce(new Vector2(-10, 5) * 10);
+            }
+        }
         var angle = minAngle + Random.Range(50, 100) * (maxAngle - minAngle);
         var x = Mathf.Cos(angle);
         var y = Mathf.Sin(angle);

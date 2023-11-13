@@ -602,7 +602,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Medcine
+  m_text: Medicine
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1397,6 +1397,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: eggSprite
+      value: 
+      objectReference: {fileID: -2289838679607395968, guid: 9633484f6f511504e857f1c7226fc7af, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: hatchTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: FoodBarGreen
       value: 
       objectReference: {fileID: 56062483}
@@ -1404,6 +1412,18 @@ PrefabInstance:
       propertyPath: HealthBarGreen
       value: 
       objectReference: {fileID: 891066331}
+    - target: {fileID: 5019357447766178840, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5019357447766178840, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561062473682684491, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2289838679607395968, guid: 9633484f6f511504e857f1c7226fc7af, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

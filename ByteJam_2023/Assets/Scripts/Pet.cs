@@ -6,41 +6,46 @@ using UnityEngine.UI;
 
 public class Pet : MonoBehaviour
 {
-    [SerializeField] private Sprite[] petSprites;
+    [SerializeField] private string pName; // p = Pet   
 
-    [SerializeField] private int age;
-    [SerializeField] private string pName; // p = Pet
-    [SerializeField] private SpriteRenderer sr;
-    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float maxVelocity;
     [SerializeField] private float minAngle;
     [SerializeField] private float maxAngle;
-    public Text text;
+    [SerializeField] private float hatchTime = 0;
 
-    private int hunger = 100;
-    private int health = 100;
-    private int CostOfFood = 10;
-    private int CostOfMedical = 10;
-    private int Money = 100;
-    private int HungerTime = 100;
+    [SerializeField] private int age = 0;
+    [SerializeField] private int hunger = 100;
+    [SerializeField] private int health = 100;
+    [SerializeField] private int costOfFood = 10;
+    [SerializeField] private int costOfMedical = 10;
+    [SerializeField] private int money = 100;
+    [SerializeField] private int hungerTime = 100;
+    [SerializeField] private int increase = 5;
+    [SerializeField] private int decrease = 5;
 
-    public int Increase = 5;
-    public int Decrease = 5;
-    public Image HealthBarGreen;
-    public Image FoodBarGreen;
+    [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Text text;
+    [SerializeField] private Image HealthBarGreen;
+    [SerializeField] private Image FoodBarGreen;
+
+    [SerializeField] private Sprite[] petSprites;
+
+
 
 
     private void Awake()
     {
-        SetRandomSprite();
+        int randPetSpriteIndex = Random.Range(0, petSprites.Length);
+        StartCoroutine(Hatch(randPetSpriteIndex));
     }
 
     private void Update()
     {
         // if the hunger timer is lower than 0 decrease the food amount.
-        if (HungerTime > 0)
+        if (hungerTime > 0)
         {
-            HungerTime -= 1;
+            hungerTime -= 1;
         }
         else
         {
@@ -50,7 +55,7 @@ public class Pet : MonoBehaviour
             {
                 DecreaseHealthStat();
             }
-            HungerTime = 100;
+            hungerTime = 100;
         }
     }
 
@@ -67,28 +72,35 @@ public class Pet : MonoBehaviour
         rb.AddForce(new Vector2(x, y) * 25);
     }
 
-    private void SetRandomSprite()
+    private IEnumerator Hatch(int indexSelection)
     {
-        int randIndex = Random.Range(0, 3);
-        sr.sprite = petSprites[randIndex];
+        yield return new WaitForSeconds(hatchTime);
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        SetSprite(indexSelection);
+    }
+
+    private void SetSprite(int indexSelection)
+    {
+        if (indexSelection < petSprites.Length && indexSelection >= 0) { sr.sprite = petSprites[indexSelection]; }
+        else { return; }  
     }
 
     // decrease the food amount and update the bar
     public void DecreaseFoodStat()
     {
-        hunger -= Decrease;
+        hunger -= decrease;
         FoodBarGreen.fillAmount = hunger / 100f;
     }
 
     // Increase the food amount/ bar IF you have the money
     public void IncreaseFoodStat()
     {
-        if(Money >= CostOfFood)
+        if(money >= costOfFood)
         {
-            hunger += Increase;
+            hunger += increase;
             FoodBarGreen.fillAmount = hunger / 100f;
             hunger = Mathf.Clamp(hunger, 0, 100);
-            Money -= CostOfFood;
+            money -= costOfFood;
         }
         
     }
@@ -96,18 +108,18 @@ public class Pet : MonoBehaviour
     // Same thing as food but for health.
     public void DecreaseHealthStat()
     {
-        health -= Decrease;
+        health -= decrease;
         HealthBarGreen.fillAmount = health / 100f;
     }
 
     public void IncreaseHealthStat()
     {
-        if(Money >= CostOfMedical)
+        if(money >= costOfFood)
         {
-            health += Increase;
+            health += increase;
             HealthBarGreen.fillAmount = health / 100f;
             health = Mathf.Clamp(health, 0, 100);
-            Money -= CostOfMedical;
+            money -= costOfFood;
         }
         
     }

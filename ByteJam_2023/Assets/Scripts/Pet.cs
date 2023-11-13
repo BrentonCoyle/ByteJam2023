@@ -33,15 +33,15 @@ public class Pet : MonoBehaviour
 
     [SerializeField] private Sprite[] petSprites;
 
-    [SerializeField] public TMP_Text MoneyText;
-    [SerializeField] public TMP_Text FoodCostText;
-    [SerializeField] public TMP_Text MediceneCostText;
+    [SerializeField] private TMP_Text MoneyText;
+    [SerializeField] private TMP_Text FoodCostText;
+    [SerializeField] private TMP_Text MediceneCostText;
 
-    [SerializeField] public GameObject FoodSpawner;
-    [SerializeField] public GameObject MediceneSpawner;
+    [SerializeField] private GameObject FoodSpawner;
+    [SerializeField] private GameObject MediceneSpawner;
 
-    [SerializeField] public GameObject Food;
-    [SerializeField] public GameObject Pill;
+    [SerializeField] private GameObject Food;
+    [SerializeField] private GameObject Pill;
 
 
     private void Awake()
@@ -161,12 +161,10 @@ public class Pet : MonoBehaviour
     }
 
     private void IncreaseHealthStat()
-    {
-        
-            health += increase;
-            HealthBarGreen.fillAmount = health / 100f;
-            health = Mathf.Clamp(health, 0, 100);
-              
+    {      
+        health += increase;
+        HealthBarGreen.fillAmount = health / 100f;
+        health = Mathf.Clamp(health, 0, 100);            
     }
 
     public void DecreaseFoodMoney()

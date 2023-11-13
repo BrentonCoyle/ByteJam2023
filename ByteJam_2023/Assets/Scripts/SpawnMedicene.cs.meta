@@ -3,7 +3,9 @@ guid: 19ce8b62e74c21d47b0149e6a7569756
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Food: {fileID: 3185959918276787656, guid: 7f3d94ced48a1914ca2bf5128f7b4fa7, type: 3}
+  - Medicene: {fileID: 6214984786003738294, guid: c08bc07c70792f849a0b5739c47e083c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

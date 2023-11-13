@@ -65,21 +65,23 @@ public class Pet : MonoBehaviour
             {
                 hungerTime -= 1;
             }
-
-            hungerTime = 100;
-        }
-
-
-        else
-        {
-            DecreaseFoodStat();
-
-            if (hunger == 0)
+            else
             {
-                DecreaseHealthStat();
+                DecreaseFoodStat();
+
+                if (hunger == 0)
+                {
+                    DecreaseHealthStat();
+                }
+                hungerTime = 100;
             }
-            hungerTime = 100;
+
+            
+
+
+
         }
+
 
     }      
 

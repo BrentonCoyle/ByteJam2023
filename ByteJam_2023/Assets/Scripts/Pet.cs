@@ -21,7 +21,6 @@ public class Pet : MonoBehaviour
     [SerializeField] private int costOfMedical = 10;
     [SerializeField] private int increase = 5;
     [SerializeField] private int decrease = 5;
-    [SerializeField] private int money = 100;
 
     private bool isHatched = false;
     private bool isSick = false;
@@ -54,9 +53,9 @@ public class Pet : MonoBehaviour
     private void Update()
     {
         /// Text for UI
-        MoneyText.SetText("Current Money: $" + money);
-        FoodCostText.SetText("Cost: $" + costOfFood);
-        MediceneCostText.SetText("Cost Money: $" + costOfMedical);
+      //  MoneyText.SetText("Current Money: $" + PlayerManager.GetMoney());
+      //  FoodCostText.SetText("Cost: $" + costOfFood);
+      //  MediceneCostText.SetText("Cost Money: $" + costOfMedical);
 
         if (isHatched)
         {
@@ -80,8 +79,6 @@ public class Pet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
-
         if(collision.gameObject.name == "Medicene(Clone)")
         {
             IncreaseHealthStat();
@@ -115,21 +112,16 @@ public class Pet : MonoBehaviour
 
     // Increase the food amount/ bar IF you have the money
     public void IncreaseFoodStat()
-    {
-        
-            hunger += increase;
-            FoodBarGreen.fillAmount = hunger / 100f;
-            hunger = Mathf.Clamp(hunger, 0, 100);
-            
-        
+    {      
+        hunger += increase;
+        FoodBarGreen.fillAmount = hunger / 100f;
+        hunger = Mathf.Clamp(hunger, 0, 100);       
     }
 
     public void UseMedicine()
-    {
-        
-            sr.color = new Color(255, 255, 255, 255);
-            isSick = false;
-
+    {       
+        sr.color = new Color(255, 255, 255, 255);
+        isSick = false;
     }
 
     private IEnumerator Hatch(int indexSelection)
@@ -179,9 +171,10 @@ public class Pet : MonoBehaviour
 
     public void DecreaseFoodMoney()
     {
+        int money = PlayerManager.GetMoney();
         if (money >= costOfFood)
         {
-            money -= costOfFood;
+            PlayerManager.ChangeMoney(money - costOfFood);
             FoodSpawner.GetComponent<SpawnFood>().Spawnfood();
         }
         
@@ -200,9 +193,10 @@ public class Pet : MonoBehaviour
 
     public void DecreaseMedMoney()
     {
+        int money = PlayerManager.GetMoney();
         if (money >= costOfMedical)
         {
-            money -= costOfMedical;
+            PlayerManager.ChangeMoney(money - costOfMedical);
             MediceneSpawner.GetComponent<SpawnMedicene>().Spawnmedicene();
         }
     }      

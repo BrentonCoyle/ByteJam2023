@@ -1,4 +1,11 @@
 using System.Collections;
+<<<<<<< HEAD
+=======
+using System.Collections.Generic;
+using System.Data.SqlTypes;
+using TMPro;
+using Unity.VisualScripting;
+>>>>>>> 7b5ee1cd590143e666fcfcc0b2659218226dcc22
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,8 +25,15 @@ public class Pet : MonoBehaviour
     [SerializeField] private int age = 0;
     [SerializeField] private int costOfFood = 10;
     [SerializeField] private int costOfMedical = 10;
+<<<<<<< HEAD
     [SerializeField] private int increase = 5;
     [SerializeField] private int decrease = 5;
+=======
+    [SerializeField] private int money = 100;
+    [SerializeField] private int hungerTime = 100;
+    [SerializeField] private int increase = 20;
+    [SerializeField] private int decrease = 2;
+>>>>>>> 7b5ee1cd590143e666fcfcc0b2659218226dcc22
 
     private bool isHatched = false;
     private bool isSick = false;
@@ -32,6 +46,13 @@ public class Pet : MonoBehaviour
 
     [SerializeField] private Sprite[] petSprites;
 
+    [SerializeField] public TMP_Text MoneyText;
+    [SerializeField] public TMP_Text FoodCostText;
+    [SerializeField] public TMP_Text MediceneCostText;
+
+    [SerializeField] public GameObject FoodSpawner;
+    [SerializeField] public GameObject MediceneSpawner;
+
 
     private void Awake()
     {
@@ -40,8 +61,15 @@ public class Pet : MonoBehaviour
     }
 
     private void Update()
+
     {
+        MoneyText.SetText("Current Money: $" + money);
+        FoodCostText.SetText("Cost: $" + costOfFood);
+        MediceneCostText.SetText("Cost Money: $" + costOfMedical);
         // if the hunger timer is lower than 0 decrease the food amount.
+    
+
+        
         if (isHatched)
         {
             if (hunger > 0) { DecreaseFoodStat(); }
@@ -49,12 +77,39 @@ public class Pet : MonoBehaviour
 
             if (!isSick)
             {
+<<<<<<< HEAD
                 if (sickTime > 0) { sickTime -= (100 * Time.deltaTime); }
                 else { TrySick(); }
             }
             else { DecreaseHealthStat(); }
         }      
     }
+=======
+                hungerTime -= 1;
+            }
+            else
+            {
+                DecreaseFoodStat();
+
+                if (hunger == 0)
+                {
+                    DecreaseHealthStat();
+                }
+                hungerTime = 100;
+            }
+
+            
+
+
+
+        }
+
+
+    }      
+
+    
+
+>>>>>>> 7b5ee1cd590143e666fcfcc0b2659218226dcc22
 
     private void FixedUpdate()
     {
@@ -116,6 +171,21 @@ public class Pet : MonoBehaviour
         else { return; }    
     }
 
+<<<<<<< HEAD
+=======
+    // Increase the food amount/ bar IF you have the money
+    private void IncreaseFoodStat()
+    {
+        
+            hunger += increase;
+            FoodBarGreen.fillAmount = hunger / 100f;
+            hunger = Mathf.Clamp(hunger, 0, 100);
+            
+        
+        
+    }
+
+>>>>>>> 7b5ee1cd590143e666fcfcc0b2659218226dcc22
     // Same thing as food but for health.
     private void DecreaseHealthStat()
     {
@@ -129,6 +199,7 @@ public class Pet : MonoBehaviour
 
     private void IncreaseHealthStat()
     {
+<<<<<<< HEAD
         int playerMoney = PlayerManager.GetMoney();
         if (playerMoney >= costOfFood)
         {
@@ -136,10 +207,31 @@ public class Pet : MonoBehaviour
             HealthBarGreen.fillAmount = health / 100f;
             health = Mathf.Clamp(health, 0, 100);
             PlayerManager.ChangeMoney(playerMoney - costOfFood);
+=======
+        
+            health += increase;
+            HealthBarGreen.fillAmount = health / 100f;
+            health = Mathf.Clamp(health, 0, 100);
+            
+        
+        
+    }
+
+
+
+    public void DecreaseFoodMoney()
+    {
+        if(money >= costOfFood)
+        {
+            money -= costOfFood;
+            FoodSpawner.GetComponent<SpawnFood>().Spawnfood();
+
+>>>>>>> 7b5ee1cd590143e666fcfcc0b2659218226dcc22
         }
         
     }
 
+<<<<<<< HEAD
     private void TrySick()
     {
         int randNum = Random.Range(0, 10);
@@ -150,6 +242,17 @@ public class Pet : MonoBehaviour
         }
         else { sickTime = 100; }
     }
+=======
+    public void DecreaseMedMoney()
+    {
+        if (money >= costOfMedical)
+        {
+            money -= costOfMedical;
+            MediceneSpawner.GetComponent<SpawnMedicene>().Spawnmedicene();
+        }
+    }
+        
+>>>>>>> 7b5ee1cd590143e666fcfcc0b2659218226dcc22
 
     private void Die()
     {

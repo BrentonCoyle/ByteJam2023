@@ -1531,6 +1531,42 @@ PrefabInstance:
       propertyPath: MediceneSpawner
       value: 
       objectReference: {fileID: 587427329}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: batStageSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: catStageSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: birdStageSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'batStageSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: -6460836127610411231, guid: e923f3deeba93f848b4b6f69d0932a81, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'batStageSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: -478020267608665475, guid: 239b8a93ed2ac884e96f001454b33429, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'catStageSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: -1284018895297282217, guid: dd1001b277a3c98448222e8347dff449, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'catStageSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: -785077356568014107, guid: 9003ae625fae6bb41b81746a66d4069d, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'birdStageSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5683273433185464768, guid: a4289146fa33f8e4b950eee846b97c58, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'birdStageSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: -3870978209565398563, guid: 4e57869fe4d77ad4085773ff2f3fa29b, type: 3}
     - target: {fileID: 6561062473682684491, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: m_SortingOrder
       value: 1

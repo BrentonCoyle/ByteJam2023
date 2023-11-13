@@ -146,37 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 3419961684435429239}
-  row1:
-  - {fileID: 3419961684435429239}
-  - {fileID: 0}
-  - {fileID: 0}
-  row2:
-  - {fileID: 3419961684435429239}
-  - {fileID: 0}
-  - {fileID: 0}
-  row3:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  column1:
-  - {fileID: 0}
-  - {fileID: 3419961684435429239}
-  - {fileID: 0}
-  column2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  column3:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  diagnol1:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  diagnol2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   circle: {fileID: 21300000, guid: 3de456c3a08459f4188d782b61cf0db2, type: 3}
   x: {fileID: 21300000, guid: 30a9418e827da6a43a8d18843a203f32, type: 3}
+  sq: {fileID: 0}
+  winMoney: 25

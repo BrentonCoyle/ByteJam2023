@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,8 +22,8 @@ public class Pet : MonoBehaviour
     [SerializeField] private int costOfMedical = 10;
     [SerializeField] private int money = 100;
     [SerializeField] private int hungerTime = 100;
-    [SerializeField] private int increase = 5;
-    [SerializeField] private int decrease = 5;
+    [SerializeField] private int increase = 20;
+    [SerializeField] private int decrease = 2;
 
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Rigidbody2D rb;
@@ -30,6 +32,13 @@ public class Pet : MonoBehaviour
     [SerializeField] private Image FoodBarGreen;
 
     [SerializeField] private Sprite[] petSprites;
+
+    [SerializeField] public TMP_Text MoneyText;
+    [SerializeField] public TMP_Text FoodCostText;
+    [SerializeField] public TMP_Text MediceneCostText;
+
+    [SerializeField] public GameObject FoodSpawner;
+    [SerializeField] public GameObject MediceneSpawner;
 
 
 
@@ -41,8 +50,13 @@ public class Pet : MonoBehaviour
     }
 
     private void Update()
+        
     {
+        MoneyText.SetText("Current Money: $" + money);
+        FoodCostText.SetText("Cost: $" + costOfFood);
+        MediceneCostText.SetText("Cost Money: $" + costOfMedical);
         // if the hunger timer is lower than 0 decrease the food amount.
+
         if (hungerTime > 0)
         {
             hungerTime -= 1;
@@ -57,6 +71,7 @@ public class Pet : MonoBehaviour
             }
             hungerTime = 100;
         }
+        
     }
 
     private void FixedUpdate()
@@ -120,6 +135,28 @@ public class Pet : MonoBehaviour
             HealthBarGreen.fillAmount = health / 100f;
             health = Mathf.Clamp(health, 0, 100);
             money -= costOfFood;
+        }
+        
+    }
+
+
+    public void DecreaseFoodMoney()
+    {
+        if(money >= costOfFood)
+        {
+            money -= costOfFood;
+            FoodSpawner.GetComponent<SpawnFood>().Spawnfood();
+
+        }
+        
+    }
+
+    public void DecreaseMedMoney()
+    {
+        if(money >= costOfMedical)
+        {
+            money -= costOfMedical;
+            MediceneSpawner.GetComponent<SpawnMedicene>().Spawnmedicene();
         }
         
     }

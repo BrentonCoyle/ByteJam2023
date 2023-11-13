@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 79aa94f15cabb6f45b41d72800b60d94
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Food: {fileID: 3185959918276787656, guid: 7f3d94ced48a1914ca2bf5128f7b4fa7, type: 3}
+  - Medicene: {fileID: 6214984786003738294, guid: c08bc07c70792f849a0b5739c47e083c,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

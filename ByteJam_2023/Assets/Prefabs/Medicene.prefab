@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7350239722108065511}
-  - component: {fileID: 6114855796711330001}
   - component: {fileID: -1837225958833882678}
   - component: {fileID: -8311852930241023539}
   - component: {fileID: -4130257933224655646}
@@ -35,19 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6114855796711330001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6214984786003738294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ce8b62e74c21d47b0149e6a7569756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Medicene: {fileID: 0}
 --- !u!212 &-1837225958833882678
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -356508586717997291, guid: 79c49066d01ae094c9c34fff248fb8b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

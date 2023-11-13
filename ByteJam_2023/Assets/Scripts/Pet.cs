@@ -53,9 +53,10 @@ public class Pet : MonoBehaviour
 
     private void Update()
     {
-        // MoneyText.SetText("Current Money: $" + money);
-        // FoodCostText.SetText("Cost: $" + costOfFood);
-        // MediceneCostText.SetText("Cost Money: $" + costOfMedical);
+        /// Text for UI
+        MoneyText.SetText("Current Money: $" + money);
+        FoodCostText.SetText("Cost: $" + costOfFood);
+        MediceneCostText.SetText("Cost Money: $" + costOfMedical);
 
         if (isHatched)
         {

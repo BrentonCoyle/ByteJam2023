@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TicTacToeSquare : MonoBehaviour
@@ -9,6 +10,7 @@ public class TicTacToeSquare : MonoBehaviour
     [SerializeField] private Sprite circle;
     [SerializeField] private Sprite x;
     [SerializeField] private SqaureGrid sq;
+    [SerializeField] private int winMoney = 0;
 
     public static int clickCtr = 0;
 
@@ -16,6 +18,10 @@ public class TicTacToeSquare : MonoBehaviour
     public static char[] board = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
     public static bool isPlayerTurn = true;
 
+    private void Awake()
+    {
+        board = new char[9] { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
+    }
 
 
     int FindBestMove(char[] board)
@@ -146,6 +152,11 @@ public class TicTacToeSquare : MonoBehaviour
             if (isPlayerWin)
             {
                 Debug.Log("Player wins!");
+                PlayerManager.ChangeMoney(PlayerManager.GetMoney() + winMoney);
+                CanvasManager.canvas.GetComponent<Canvas>().enabled = true;
+                PetManager.pet.GetComponent<SpriteRenderer>().enabled = true;
+                PetManager.pet.GetComponent<Pet>().enabled = true;
+                SceneManager.LoadScene("Main");
                 // Handle end game logic
             }
 
@@ -165,11 +176,21 @@ public class TicTacToeSquare : MonoBehaviour
             if (isComputerWin)
             {
                 Debug.Log("Computer Wins!");
+                CanvasManager.canvas.GetComponent<Canvas>().enabled = true;
+                GameObject.FindGameObjectWithTag("MainCamera").SetActive(true);
+                PetManager.pet.GetComponent<SpriteRenderer>().enabled = true;
+                PetManager.pet.GetComponent<Pet>().enabled = true;
+                SceneManager.LoadScene("Main");
             }            
 
             if (IsBoardFull(board) && !isPlayerWin && !isComputerWin)
             {
                 Debug.Log("Draw!");
+                CanvasManager.canvas.GetComponent<Canvas>().enabled = true;
+                GameObject.FindGameObjectWithTag("MainCamera").SetActive(true);
+                PetManager.pet.GetComponent<SpriteRenderer>().enabled = true;
+                PetManager.pet.GetComponent<Pet>().enabled = true;
+                SceneManager.LoadScene("Main");
             }
             else
             {

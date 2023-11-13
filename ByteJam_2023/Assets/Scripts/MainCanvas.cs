@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class MainCanvas : MonoBehaviour
 {
-    public int money = 100;
-    private static Player player = null;
-    [SerializeField] private List<Pet> pets;
+    private static MainCanvas canvas = null;
 
     private void Awake()
     {
-        if (player == null)
+        if (canvas == null)
         {
-            player = this;
+            canvas = this;
         }
         else
         {
-            if (player != this)
+            if (canvas != this)
             {
                 Destroy(gameObject);
             }

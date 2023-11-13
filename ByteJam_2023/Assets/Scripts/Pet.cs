@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Pet : MonoBehaviour
 {
+    [SerializeField] private Sprite[] petSprites;
+
     [SerializeField] private int age;
     [SerializeField] private string pName; // p = Pet
     [SerializeField] private SpriteRenderer sr;
@@ -27,6 +29,11 @@ public class Pet : MonoBehaviour
     public Image HealthBarGreen;
     public Image FoodBarGreen;
 
+
+    private void Awake()
+    {
+        SetRandomSprite();
+    }
 
     private void Update()
     {
@@ -58,6 +65,12 @@ public class Pet : MonoBehaviour
         var x = Mathf.Cos(angle);
         var y = Mathf.Sin(angle);
         rb.AddForce(new Vector2(x, y) * 25);
+    }
+
+    private void SetRandomSprite()
+    {
+        int randIndex = Random.Range(0, 3);
+        sr.sprite = petSprites[randIndex];
     }
 
     // decrease the food amount and update the bar

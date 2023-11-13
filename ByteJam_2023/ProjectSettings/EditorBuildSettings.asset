@@ -8,5 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: afb305a530fcd4148acc58d1a64b0d37
+  - enabled: 1
+    path: Assets/Scenes/TicTacToe.unity
+    guid: 5667c44054f617f408adb1cff5eb79f0
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -1788,6 +1788,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6214984786003738294, guid: c08bc07c70792f849a0b5739c47e083c, type: 3}
     - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: decrease
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: increase
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: MoneyText
       value: 
       objectReference: {fileID: 536434547}

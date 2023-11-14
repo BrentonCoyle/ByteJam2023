@@ -1073,7 +1073,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: -1.06
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1098,7 +1098,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10800}
-  m_LocalScale: {x: 108, y: 108, z: 108}
+  m_LocalScale: {x: 108, y: 108, z: 108.35}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657392182}
@@ -1736,12 +1736,20 @@ PrefabInstance:
       value: Pet
       objectReference: {fileID: 0}
     - target: {fileID: 1987331761099193817, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987331761099193817, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987331761099193817, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1987331761099193817, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -162
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1987331761099193817, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1776,8 +1784,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4217428070768021793, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: m_Radius
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217428070768021793, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: m_Offset.y
-      value: -0.01
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: Food
@@ -1824,6 +1836,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1076494379}
     - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: petSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'petSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1618128061947364979, guid: 784a782bff10c8d459c6c766370499aa, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'petSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: -8495330555649816288, guid: 0150ef0b10c64b642bc3bfbd1fba3754, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'petSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 4013024344751355716, guid: 22da6317be21065448683b66288f6f77, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'petSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 4013024344751355716, guid: 22da6317be21065448683b66288f6f77, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: batStageSprites.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1838,27 +1870,43 @@ PrefabInstance:
     - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: 'batStageSprites.Array.data[0]'
       value: 
-      objectReference: {fileID: -6460836127610411231, guid: e923f3deeba93f848b4b6f69d0932a81, type: 3}
+      objectReference: {fileID: 6802898545933418667, guid: 1b585444d83177c4a9156dbcd4dde7db, type: 3}
     - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: 'batStageSprites.Array.data[1]'
       value: 
-      objectReference: {fileID: -478020267608665475, guid: 239b8a93ed2ac884e96f001454b33429, type: 3}
+      objectReference: {fileID: 4013024344751355716, guid: 22da6317be21065448683b66288f6f77, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'batStageSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: -1205315146903848585, guid: 49d9045e64b087446a569317963dc98b, type: 3}
     - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: 'catStageSprites.Array.data[0]'
       value: 
-      objectReference: {fileID: -1284018895297282217, guid: dd1001b277a3c98448222e8347dff449, type: 3}
+      objectReference: {fileID: 5388947207155900934, guid: c72f78ac3e57b2148bf0f1fa96132009, type: 3}
     - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: 'catStageSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: -1205315146903848585, guid: 49d9045e64b087446a569317963dc98b, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'catStageSprites.Array.data[2]'
       value: 
       objectReference: {fileID: -785077356568014107, guid: 9003ae625fae6bb41b81746a66d4069d, type: 3}
     - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: 'birdStageSprites.Array.data[0]'
       value: 
-      objectReference: {fileID: 5683273433185464768, guid: a4289146fa33f8e4b950eee846b97c58, type: 3}
+      objectReference: {fileID: 6802898545933418667, guid: 1b585444d83177c4a9156dbcd4dde7db, type: 3}
     - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: 'birdStageSprites.Array.data[1]'
       value: 
+      objectReference: {fileID: 4013024344751355716, guid: 22da6317be21065448683b66288f6f77, type: 3}
+    - target: {fileID: 4636166845699635884, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: 'birdStageSprites.Array.data[2]'
+      value: 
       objectReference: {fileID: -3870978209565398563, guid: 4e57869fe4d77ad4085773ff2f3fa29b, type: 3}
+    - target: {fileID: 6561062473682684491, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3573323087201661909, guid: 10d30422974b8c94794ba8569d8742e9, type: 3}
     - target: {fileID: 6561062473682684491, guid: da529d16ab72dfd4a9063b51c822eb18, type: 3}
       propertyPath: m_SortingOrder
       value: 1

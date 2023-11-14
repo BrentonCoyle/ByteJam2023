@@ -35,7 +35,6 @@ public class Pet : MonoBehaviour
 
     [SerializeField] private Sprite[] petSprites;
     [SerializeField] private Sprite[] batStageSprites;
-    [SerializeField] private Sprite[] birdStageSprites;
     [SerializeField] private Sprite[] catStageSprites;
 
     [SerializeField] private TMP_Text MoneyText;
@@ -57,8 +56,10 @@ public class Pet : MonoBehaviour
 
     private void Update()
     {
+
+
         /// Text for UI
-      MoneyText.SetText("Current Money: $" + PlayerManager.GetMoney());
+        MoneyText.SetText("Current Money: $" + PlayerManager.GetMoney());
       FoodCostText.SetText("Cost: $" + costOfFood);
       MediceneCostText.SetText("Cost: $" + costOfMedical);
 
@@ -82,10 +83,7 @@ public class Pet : MonoBehaviour
                 {
                     sr.sprite = batStageSprites[0];
                 }
-                else if (sr.sprite == petSprites[1])
-                {
-                    sr.sprite = birdStageSprites[0];
-                }
+                
                 else if (sr.sprite == petSprites[2])
                 {
                     sr.sprite = catStageSprites[0];
@@ -98,10 +96,6 @@ public class Pet : MonoBehaviour
                 if (sr.sprite == batStageSprites[0])
                 {
                     sr.sprite = batStageSprites[1];
-                }
-                else if (sr.sprite == birdStageSprites[0])
-                {
-                    sr.sprite = birdStageSprites[1];
                 }
                 else if (sr.sprite == catStageSprites[0])
                 {
